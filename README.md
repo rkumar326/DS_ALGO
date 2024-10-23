@@ -1,2 +1,3 @@
 # DS_ALGO
-All algorithm and codes are here.
+All algorithms and codes are here.
+Author - Raunak Kumar
