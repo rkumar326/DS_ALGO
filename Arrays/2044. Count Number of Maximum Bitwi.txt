@@ -1,0 +1,30 @@
+2044. Count Number of Maximum Bitwise-OR Subsets
+
+class Solution {
+public:
+    void solve(vector<int>& nums, int& orOfArray, int& count, int i, int currOr){
+        if(i >= nums.size()){
+            if(currOr == orOfArray){
+                count++;
+            }
+            return;
+        }
+
+        solve(nums, orOfArray, count, i+1, currOr);
+
+        currOr |= nums[i];
+        solve(nums,orOfArray,count,i+1,currOr);
+    }
+    int countMaxOrSubsets(vector<int>& nums) {
+        int orOfArray = 0;
+        for(auto i : nums){
+            orOfArray |= i;
+        }
+        // cout << "OR is : " << orOfArray << endl;
+        
+        int count = 0;
+        int currOr = 0;
+        solve(nums,orOfArray,count,0,currOr);
+        return count;
+    }
+};
